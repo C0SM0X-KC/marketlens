@@ -134,8 +134,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--paper-strong); margin: 0.3rem 0 0.3rem; letter-spacing: -0.025em; line-height: 1.08;
 }
 .ml-subtitle { color: var(--dim); font-size: 0.9rem; max-width: 72ch; line-height: 1.55; }
-.ml-rule { height: 2px; margin-top: 1rem;
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 44px, var(--line) 44px, transparent 60%); }
+.ml-rule { height: 1px; margin-top: 1rem;
+  background: linear-gradient(90deg, rgba(232,230,223,0.38) 0%, rgba(232,230,223,0.10) 34%, transparent 72%); }
 
 /* ---- market tape (signature) ----------------------------------------- */
 .ml-tape {
@@ -155,10 +155,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--dim); text-transform: uppercase;
 }
 .ml-tape-last {
-  font-family: var(--font-mono); font-size: 1.02rem; font-weight: 500; color: var(--paper-strong);
+  font-family: var(--font-ui); font-size: 1.04rem; font-weight: 600; color: var(--paper-strong);
   margin: 4px 0 2px; font-variant-numeric: tabular-nums;
 }
-.ml-tape-chg { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ml-tape-chg { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 500; font-variant-numeric: tabular-nums; }
 @media (max-width: 900px) { .ml-tape { grid-template-columns: repeat(2, 1fr); }
   .ml-tape-item:nth-child(even) { border-right: none; } }
 /* tape error state — the signature element says why it is empty, never blank */
@@ -210,10 +210,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .ml-live-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--up); box-shadow: 0 0 0 3px rgba(63,182,139,0.16); }
 .ml-hero-panel-val {
-  font-family: var(--font-mono); font-size: 1.7rem; font-weight: 500; color: var(--paper-strong);
+  font-family: var(--font-ui); font-size: 1.74rem; font-weight: 600; color: var(--paper-strong);
   letter-spacing: -0.01em; font-variant-numeric: tabular-nums;
 }
-.ml-hero-panel-chg { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.ml-hero-panel-chg { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 500; margin-top: 2px; font-variant-numeric: tabular-nums; }
 .ml-spark { width: 100%; height: 58px; display: block; margin: 12px 0 8px; }
 .ml-spark polyline { stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ml-spark-up { stroke: var(--up); }
@@ -289,9 +289,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 /* ---- KPI cards -------------------------------------------------------- */
+/* Responsive KPI grid: roomy 6-up on wide screens, wraps to 3 then 2 so the
+   numbers never crowd or clip (the old fixed 6 st.columns squeezed them). */
+.ml-kpi-grid {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px; margin-bottom: 6px;
+}
+@media (max-width: 1200px) { .ml-kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .ml-kpi-grid { grid-template-columns: repeat(2, 1fr); } }
 .ml-kpi {
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
-  border: 1px solid var(--line); border-radius: 12px; padding: 15px 16px 14px;
+  border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 16px;
   height: 100%; position: relative; overflow: hidden;
   transition: border-color .15s ease, transform .15s ease;
 }
@@ -301,9 +309,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ml-kpi:hover::before { opacity: 0.6; }
 .ml-kpi .lbl {
   font-family: var(--font-mono); color: var(--dim); font-size: 0.66rem; text-transform: uppercase;
-  letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 500;
+  letter-spacing: 0.1em; margin-bottom: 11px; font-weight: 500; white-space: nowrap;
 }
-.ml-kpi .val { font-family: var(--font-display); font-size: 1.46rem; font-weight: 600;
+.ml-kpi .val { font-family: var(--font-ui); font-size: 1.46rem; font-weight: 600;
   line-height: 1.04; color: var(--paper-strong); letter-spacing: -0.02em; }
 .ml-kpi .sub { font-size: 0.8rem; margin-top: 6px; font-weight: 500; font-family: var(--font-mono);
   font-variant-numeric: tabular-nums; }
@@ -319,7 +327,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   font-family: var(--font-mono); color: var(--dim); font-size: 0.66rem !important;
   text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
 }
-[data-testid="stMetricValue"] { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600;
+[data-testid="stMetricValue"] { font-family: var(--font-ui); font-size: 1.4rem; font-weight: 600;
   color: var(--paper-strong); letter-spacing: -0.02em; }
 [data-testid="stMetricDelta"] { font-size: 0.8rem; font-weight: 500; font-family: var(--font-mono); }
 

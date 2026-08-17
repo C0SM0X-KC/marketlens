@@ -61,22 +61,21 @@ dd_stats = drawdown.max_drawdown_stats(px)
 cur_trend = trend.current_trend(px)
 cur_regime = regime.current_regime(df["Return"])
 
-# ---- KPI row --------------------------------------------------------------
-c = st.columns(6)
+# ---- KPI row (responsive grid — comfortable width, wraps on narrow screens) -
 kpis = [
-    ("Last Price", fmt_num(px.iloc[-1]), "", "ml-flat"),
-    ("Daily", fmt_pct(tr["daily"], signed=True), "", color_class(tr["daily"])),
-    ("YTD", fmt_pct(tr["ytd"], signed=True), "", color_class(tr["ytd"])),
-    ("Vol 20d (ann)", fmt_pct(vol20), "", "ml-flat"),
-    ("Max Drawdown", fmt_pct(dd_stats.max_drawdown), "", "ml-down"),
-    ("CAGR", fmt_pct(returns.cagr(px)), "", "ml-flat"),
+    ("Last Price", fmt_num(px.iloc[-1]), "ml-flat"),
+    ("Daily", fmt_pct(tr["daily"], signed=True), color_class(tr["daily"])),
+    ("YTD", fmt_pct(tr["ytd"], signed=True), color_class(tr["ytd"])),
+    ("Vol 20d (ann)", fmt_pct(vol20), "ml-flat"),
+    ("Max Drawdown", fmt_pct(dd_stats.max_drawdown), "ml-down"),
+    ("CAGR", fmt_pct(returns.cagr(px)), "ml-flat"),
 ]
-for col, (lbl, val, sub, cls) in zip(c, kpis):
-    col.markdown(
-        f'<div class="ml-kpi"><div class="lbl">{lbl}</div>'
-        f'<div class="val {cls}">{val}</div></div>',
-        unsafe_allow_html=True,
-    )
+kpi_html = "".join(
+    f'<div class="ml-kpi"><div class="lbl">{lbl}</div>'
+    f'<div class="val {cls}">{val}</div></div>'
+    for lbl, val, cls in kpis
+)
+st.markdown(f'<div class="ml-kpi-grid">{kpi_html}</div>', unsafe_allow_html=True)
 
 st.markdown(
     f"Trend {trend_badge(cur_trend)} &nbsp; Regime {regime_badge(cur_regime)}",
