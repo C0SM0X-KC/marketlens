@@ -83,8 +83,11 @@ for i, (_, r) in enumerate(overview.head(3).iterrows()):
         st.markdown(
             f'<div class="ml-kpi"><div class="lbl">{r["Asset"]}</div>'
             f'<div class="val">{fmt_num(r["Price"])}</div>'
-            f'<div class="sub {color_class(r["Daily"])}">{fmt_pct(r["Daily"], signed=True)} today · '
-            f'{fmt_pct(r["YTD"], signed=True)} YTD</div></div>',
+            f'<div class="sub">'
+            f'<span class="{color_class(r["Daily"])}">{fmt_pct(r["Daily"], signed=True)} today</span>'
+            f'<span class="sep"> · </span>'
+            f'<span class="{color_class(r["YTD"])}">{fmt_pct(r["YTD"], signed=True)} YTD</span>'
+            f'</div></div>',
             unsafe_allow_html=True,
         )
 
