@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Cached & processed market data (regenerated on demand)
+data/raw/cache/
+data/processed/
+*.parquet
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Claude Code / Impeccable tooling (agent-side, not part of the product)
+.claude/skills/
+.claude/settings.local.json
+.impeccable/
