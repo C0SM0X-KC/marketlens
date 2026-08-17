@@ -25,7 +25,7 @@ from src.config import ASSETS
 
 setup_page("Research Summary", icon="▨")
 page_header(
-    "Research Snapshot",
+    "Research Summary",
     "An automatically generated summary built strictly from calculated metrics. "
     "It is descriptive only and is not investment advice.",
     section="Summary",
