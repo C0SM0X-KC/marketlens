@@ -270,7 +270,7 @@ _PAGES = [
     st.Page("pages/4_Macro_Events.py", title="Macro Events",
             icon=":material/event:", url_path="Macro_Events"),
     st.Page("pages/5_Strategy_Lab.py", title="Strategy Lab",
-            icon=":material/science:", url_path="Strategy_Lab"),
+            icon=":material/query_stats:", url_path="Strategy_Lab"),
     st.Page("pages/6_Research_Summary.py", title="Research Summary",
             icon=":material/summarize:", url_path="Research_Summary"),
 ]
