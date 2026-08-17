@@ -344,6 +344,14 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ml-badge-high { background: rgba(229,72,77,0.12); color: var(--down); border-color: rgba(229,72,77,0.3); }
 .ml-caption { color: var(--dim); font-size: 0.8rem; line-height: 1.55; }
 
+/* Trend / Regime status row: two labelled badge groups with clear separation. */
+.ml-status-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; margin: 16px 0 6px; }
+.ml-status { display: inline-flex; align-items: center; gap: 10px; }
+.ml-status .k {
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--dim);
+}
+
 /* ---- closing invitation (peak-end) ------------------------------------ */
 [data-testid="stMarkdownContainer"] a.ml-cta,
 [data-testid="stMarkdownContainer"] a.ml-cta:hover { text-decoration: none; }

@@ -78,7 +78,10 @@ kpi_html = "".join(
 st.markdown(f'<div class="ml-kpi-grid">{kpi_html}</div>', unsafe_allow_html=True)
 
 st.markdown(
-    f"Trend {trend_badge(cur_trend)} &nbsp; Regime {regime_badge(cur_regime)}",
+    f'<div class="ml-status-row">'
+    f'<div class="ml-status"><span class="k">Trend</span>{trend_badge(cur_trend)}</div>'
+    f'<div class="ml-status"><span class="k">Regime</span>{regime_badge(cur_regime)}</div>'
+    f'</div>',
     unsafe_allow_html=True,
 )
 
