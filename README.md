@@ -14,6 +14,8 @@ market or strategy, without writing code themselves.
 
 <sub>Built with Python · pandas · NumPy · SciPy · Streamlit · Plotly · yfinance · pytest</sub>
 
+![MarketLens home page](docs/home.png)
+
 ---
 
 ## Features
@@ -38,6 +40,26 @@ MarketLens is organised as six parallel research modules:
   / high volatility from a rolling percentile.
 - **Local caching** — prices are cached to disk with a configurable TTL, so repeat runs are
   fast and the app degrades gracefully when live data is unavailable.
+
+---
+
+## Screenshots
+
+**Market Overview — cross-asset KPIs**
+
+![Market Overview](docs/market-overview.png)
+
+**Strategy Lab — cost-aware backtest vs. buy-and-hold**
+
+![Strategy Lab](docs/strategy-lab.png)
+
+**Cross-Market — correlation matrix**
+
+![Cross-Market correlation matrix](docs/cross-market.png)
+
+**Asset Analysis — single-instrument breakdown**
+
+![Asset Analysis](docs/asset-analysis.png)
 
 ---
 
