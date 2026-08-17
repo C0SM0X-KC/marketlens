@@ -307,6 +307,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   line-height: 1.04; color: var(--paper-strong); letter-spacing: -0.02em; }
 .ml-kpi .sub { font-size: 0.8rem; margin-top: 6px; font-weight: 500; font-family: var(--font-mono);
   font-variant-numeric: tabular-nums; }
+.ml-kpi .sub .sep { color: var(--dim); }
 .ml-up { color: var(--up); } .ml-down { color: var(--down); } .ml-flat { color: var(--dim); }
 
 /* ---- st.metric as a card --------------------------------------------- */
@@ -398,6 +399,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 [data-testid="stSidebarContent"] { display: flex; flex-direction: column; }
 [data-testid="stSidebarUserContent"] {
   flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;
+  /* Streamlit ships ~96px of bottom padding here, which reads as dead space
+     under the pinned footer — trim it so the footer hugs the sidebar bottom. */
+  padding-bottom: 20px;
 }
 [data-testid="stSidebarUserContent"] > div {
   flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;
