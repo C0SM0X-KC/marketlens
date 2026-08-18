@@ -31,6 +31,5 @@ Thumbs.db
 .ipynb_checkpoints/
 
 # Claude Code / Impeccable tooling (agent-side, not part of the product)
-.claude/skills/
-.claude/settings.local.json
+.claude/
 .impeccable/
